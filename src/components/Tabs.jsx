@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
+import { useParams } from "react-router-dom";
 import MuiTabs from "@mui/material/Tabs";
+
 import Tab from "./Tab";
-import DummyTable from "./DummyTable";
-import DummyList from "./DummyList";
-import DummyChart from "./DummyChart";
 
 const Tabs = ({ tabs }) => {
+  let { tabId } = useParams();
+
+  const activeTab = useMemo(
+    () => (tabId ? tabs.findIndex((tab) => tab.id === tabId) : 0),
+    [tabs, tabId]
+  );
+
   return (
     <>
       <MuiTabs
-        value={false}
-        onChange={() => console.log("change TABS")}
+        value={activeTab}
         centered
+        sx={{
+          margin: "50px auto",
+        }}
       >
-        {tabs.map(({ id, title, path }) => (
-          <Tab key={id} title={title} path={path} />
+        {tabs.map(({ id, title }) => (
+          <Tab key={id} id={id} title={title} />
         ))}
       </MuiTabs>
-      <DummyTable></DummyTable>
-      <DummyList></DummyList>
-      <DummyChart></DummyChart>
     </>
   );
 };
