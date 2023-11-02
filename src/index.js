@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./components/App";
 import ErrorPage from "./components/ErrorPage";
 import Content from "./components/Content";
+import DefaultContent from "./components/DefaultContent";
 import { getTabs } from "./utils/getTabs";
 
 import "./index.css";
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: getTabs,
     children: [
-      // { index: true, element: <Content /> },
+      { index: true, element: <DefaultContent /> },
       {
         path: ":tabId",
         element: <Content />,

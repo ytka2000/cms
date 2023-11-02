@@ -1,9 +1,11 @@
 import mainTabs from "../tabs.json";
+import { sortTabs } from "../utils/sortTabs";
 
 const getTabs = async () => {
   const tabs = await new Promise((resolve) => {
     setTimeout(() => {
-      resolve(mainTabs);
+      const sortedTabs = sortTabs(mainTabs);
+      resolve(sortedTabs);
     }, 1000);
   });
 
