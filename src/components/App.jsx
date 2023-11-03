@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <Tabs tabs={tabs} />
-      <Outlet />
+      <Outlet context={[tabs]} />
     </div>
   );
 }

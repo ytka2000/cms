@@ -12,16 +12,16 @@ import "./assets/index.css";
 
 const router = createBrowserRouter([
   {
-    id: "main",
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     loader: getTabs,
     children: [
-      { index: true, element: <DefaultContent /> },
+      { index: true, element: <DefaultContent />, errorElement: <ErrorPage /> },
       {
         path: ":tabId",
         element: <Content />,
+        errorElement: <ErrorPage />,
       },
     ],
   },

@@ -1,5 +1,5 @@
 import React, { useMemo, Suspense, lazy } from "react";
-import { useParams, useRouteLoaderData } from "react-router-dom";
+import { useParams, useOutletContext } from "react-router-dom";
 
 import Loader from "./Loader";
 
@@ -7,7 +7,7 @@ const tabComponent = (tabPath) => lazy(() => import(`./${tabPath}`));
 
 const Content = () => {
   let { tabId } = useParams();
-  const { tabs } = useRouteLoaderData("main");
+  const [tabs] = useOutletContext();
 
   const activeTab = useMemo(
     () => tabs.find((tab) => tab.id === tabId),

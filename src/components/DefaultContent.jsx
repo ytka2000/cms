@@ -1,8 +1,8 @@
 import React from "react";
-import { Navigate, useRouteLoaderData } from "react-router-dom";
+import { Navigate, useOutletContext } from "react-router-dom";
 
 const DefaultContent = () => {
-  const { tabs } = useRouteLoaderData("main");
+  const [tabs] = useOutletContext();
 
   return <Navigate to={`/${tabs[0].id}`} replace />;
 };
