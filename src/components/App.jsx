@@ -1,6 +1,6 @@
+import React from "react";
 import { Outlet, useLoaderData } from "react-router-dom";
 
-import "../App.css";
 import Tabs from "./Tabs";
 
 function App() {
