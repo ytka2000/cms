@@ -1,19 +1,20 @@
-import mainTabs from "../tabs.json";
 import { sortTabs } from "../utils/sortTabs";
 
-const getTabs = async () => {
-  const tabs = await new Promise((resolve) => {
-    setTimeout(() => {
-      const sortedTabs = sortTabs(mainTabs);
-      resolve(sortedTabs);
-    }, 1000);
-  });
-
-  return { tabs };
+const requestTabs = async () => {
+  try {
+    const response = await fetch("/tabs.json");
+    const tabs = await response.json();
+    return tabs;
+  } catch (error) {
+    console.error("Error:", error);
+  }
 };
 
-// loader: async ({ params }) => {
-//   return fetch(`/api/teams/${params.teamId}.json`);
-// },
+const getTabs = async () => {
+  const tabs = await requestTabs();
+  const sortedTabs = sortTabs(tabs);
+
+  return { tabs: sortedTabs };
+};
 
 export { getTabs };

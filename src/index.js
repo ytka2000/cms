@@ -8,7 +8,7 @@ import Content from "./components/Content";
 import DefaultContent from "./components/DefaultContent";
 import { getTabs } from "./utils/getTabs";
 
-import "./index.css";
+import "./assets/index.css";
 
 const router = createBrowserRouter([
   {
