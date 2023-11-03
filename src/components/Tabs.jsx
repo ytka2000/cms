@@ -1,21 +1,13 @@
-import React, { useMemo } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 
 import MuiTabs from "@mui/material/Tabs";
 
 import Tab from "./Tab";
 
-const Tabs = ({ tabs }) => {
-  let { tabId } = useParams();
-
-  const activeTab = useMemo(
-    () => (tabId ? tabs.findIndex((tab) => tab.id === tabId) : 0),
-    [tabs, tabId]
-  );
-
+const Tabs = ({ tabs, activeTabIndex }) => {
   return (
     <MuiTabs
-      value={activeTab}
+      value={activeTabIndex}
       centered
       sx={{
         margin: "50px auto",
