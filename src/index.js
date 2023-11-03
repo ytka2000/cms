@@ -17,11 +17,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     loader: getTabs,
     children: [
-      { index: true, element: <DefaultContent />, errorElement: <ErrorPage /> },
+      { index: true, element: <DefaultContent /> },
       {
         path: ":tabId",
         element: <Content />,
-        errorElement: <ErrorPage />,
       },
     ],
   },
