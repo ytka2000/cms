@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import App from "./components/App";
 import ErrorPage from "./components/ErrorPage";
@@ -10,7 +10,7 @@ import { getTabs } from "./utils/getTabs";
 
 import "./assets/index.css";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
